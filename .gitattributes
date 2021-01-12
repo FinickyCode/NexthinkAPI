@@ -1,0 +1,7 @@
+*.ps1 text eol=lf
+*.psd1 text eol=lf
+*.sample text eol=lf
+*.cmd text eol=lf
+*.md text eol=lf
+*.csv text eol=lf
+*.json text eol=lf
