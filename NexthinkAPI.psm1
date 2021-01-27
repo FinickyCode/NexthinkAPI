@@ -601,11 +601,18 @@ function Invoke-PrivateNxtQuery
                         }
                         catch
                         {
+                            Write-Verbose $_.Exception.Message
+                            Write-Verbose 'Content:'
+                            Write-Verbose $content
+                            Write-Verbose '---'
                             throw [InvalidOperationException]::new('Invalid HTML response', $_.Exception)
                         }
                         $errorMsg = $html.getElementById('error_message')
                         if ( $null -eq $errorMsg )
                         {
+                            Write-Verbose 'Content:'
+                            Write-Verbose $content
+                            Write-Verbose '---'
                             throw [InvalidOperationException]::new('Unexpected HTML response')
                         }
                         else
@@ -642,6 +649,10 @@ function Invoke-PrivateNxtQuery
                     }
                     catch
                     {
+                        Write-Verbose $_.Exception.Message
+                        Write-Verbose 'Content:'
+                        Write-Verbose $content
+                        Write-Verbose '---'
                         throw [InvalidOperationException]::new('Unexpected response', $_)
                     }
                 }
